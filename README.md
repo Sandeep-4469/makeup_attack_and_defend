@@ -129,7 +129,7 @@ python inference.py --input_dir ../results/beautygan_attacks/ --output_dir ../re
 ---
  ## Acknowledgements
  I would like to extend my sincere gratitude to the Teaching Assistants who provided invaluable support throughout the development of this project:
- - @Sudev007
+ - [@Sudev007](https://github.com/Sudev007)
 
 ---
 
