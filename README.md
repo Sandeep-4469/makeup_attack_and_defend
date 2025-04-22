@@ -111,7 +111,7 @@ python inference.py --input_dir ../results/beautygan_attacks/ --output_dir ../re
 
 | Original Image | After Makeup Attack | After Defense |
 |----------------|---------------------|----------------|
-| ![original](results/sample_orig.jpg) | ![attacked](results/sample_attack.jpg) | ![defended](results/sample_defended.jpg) |
+| ![original](results/0_0.jpg) | ![attacked](results/0_0_makeup_applied_15_.png) | ![defended](results/no_makeup.jpg) |
 
 - Face recognition performance drops after makeup attack.
 - UNet + PatchGAN successfully removes makeup.
