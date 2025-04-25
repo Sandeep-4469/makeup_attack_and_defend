@@ -62,7 +62,9 @@ cd makeup_attack_and_defend
 ### 2. Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+#creating virtual env (conda)
+conda env create -f environment.yml
+conda activate mup
 ```
 
 ### 3. Prepare Datasets
@@ -79,28 +81,30 @@ Place the datasets inside the `datasets/` folder.
 ### Train the Defense GAN
 
 ```bash
-cd defense
-python train_defense_gan.py --dataset_path ../datasets/celeba/
+cd makeup_removal
+python train.py
 ```
 
 ### Run Inference with the Defense GAN
 
 ```bash
-python inference.py --input_dir ../results/makeup_attacks/ --output_dir ../results/defended/
+python inference.py
 ```
 
 ### Generate Transferable Attacks using BeautyGAN
 
 ```bash
-cd beautygan_attack
-python generate_makeup_attacks.py --dataset pubfig --output ../results/beautygan_attacks/
+cd makeup_attack
+python train_beautygan.py --dataroot_A ./data/non-makeup     --dataroot_B ./data/makeup     --name beautygan_makeup_run     --model cycle_gan
+
+python test_image.py # for testing attack on image
 ```
 
 ### Defend Against BeautyGAN Attacks
 
 ```bash
-cd ../defense
-python inference.py --input_dir ../results/beautygan_attacks/ --output_dir ../results/defended_pubfig/
+cd ../makeup_removal
+python inference.py
 ```
 
 ---
@@ -127,17 +131,18 @@ python inference.py --input_dir ../results/beautygan_attacks/ --output_dir ../re
 - [UNet Architecture](https://arxiv.org/abs/1505.04597)
 
 ---
+
+## 👤 Author
+**Vissapragada Sandeep (M24DS018, IIT-Bhilai)** \
+GitHub: [@Sandeep-4469](https://github.com/Sandeep-4469)
+---
+
+## Co-author 
+**Sugandh Kumar (M24DS016, IIT-Bhilai)**\
+GitHub: [@sugandhkumar123](https://github.com/sugandhkumar123)
+---
  ## Acknowledgements
  I would like to extend my sincere gratitude to the Teaching Assistants who provided invaluable support throughout the development of this project:
  - [@Sudev007](https://github.com/Sudev007)
-
----
-
-## 👤 Author
-
-**Sandeep**  
-GitHub: [@Sandeep-4469](https://github.com/Sandeep-4469)
-
-
 
 ---
